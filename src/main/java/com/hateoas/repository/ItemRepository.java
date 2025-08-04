@@ -1,0 +1,9 @@
+package com.hateoas.repository;
+
+import com.hateoas.model.ItemEntity;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ItemRepository extends CrudRepository<ItemEntity, Long> {
+}

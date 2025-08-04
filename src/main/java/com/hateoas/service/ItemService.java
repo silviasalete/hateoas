@@ -3,6 +3,8 @@ package com.hateoas.service;
 import com.hateoas.dto.ItemDTO;
 import com.hateoas.dto.ItemWeb;
 import com.hateoas.model.ItemEntity;
+import com.hateoas.repository.ItemRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,8 +12,11 @@ import java.util.List;
 @Service
 public class ItemService {
 
+    @Autowired
+    private ItemRepository repository;
+
     public ItemEntity createItem(ItemDTO dto){
-       return  new ItemEntity(1L, dto.context());
+        return  repository.save(new ItemEntity(dto.context()));
     }
 
     public ItemEntity getItemById(Long id) {
